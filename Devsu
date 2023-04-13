@@ -1,0 +1,66 @@
+Para realizar la prueba de los servicios REST de Signup y Login en https://www.demoblaze.com/, podemos utilizar alguna herramienta para pruebas de servicios REST, como Postman o Insomnia. A continuación, presentamos un ejemplo utilizando Postman.
+
+Para realizar la prueba de Signup, seguimos los siguientes pasos:
+
+Abrir Postman y crear una nueva solicitud POST.
+En la URL, ingresar https://api.demoblaze.com/signup.
+En la pestaña "Body", seleccionar "raw" y "JSON" en el menú desplegable.
+En el cuerpo de la solicitud, ingresar los datos del nuevo usuario en formato JSON, por ejemplo:
+json
+Copy code
+{
+    "username": "nuevo_usuario",
+    "password": "contrasena",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "nuevo_usuario@correo.com",
+    "phone": "123456789"
+}
+Enviar la solicitud y verificar que la respuesta sea 200 OK.
+Verificar que el usuario haya sido creado en la página https://www.demoblaze.com/ haciendo login con las credenciales ingresadas en el paso anterior.
+Para realizar la prueba de intentar crear un usuario ya existente, seguimos los siguientes pasos:
+
+Abrir Postman y crear una nueva solicitud POST.
+En la URL, ingresar https://api.demoblaze.com/signup.
+En la pestaña "Body", seleccionar "raw" y "JSON" en el menú desplegable.
+En el cuerpo de la solicitud, ingresar los datos de un usuario ya existente en formato JSON, por ejemplo:
+json
+Copy code
+{
+    "username": "usuario_existente",
+    "password": "contrasena",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "usuario_existente@correo.com",
+    "phone": "123456789"
+}
+Enviar la solicitud y verificar que la respuesta sea 409 Conflict.
+Verificar que el usuario no haya sido creado en la página https://www.demoblaze.com/.
+Para realizar la prueba de Login con usuario y password correcto, seguimos los siguientes pasos:
+
+Abrir Postman y crear una nueva solicitud POST.
+En la URL, ingresar https://api.demoblaze.com/login.
+En la pestaña "Body", seleccionar "raw" y "JSON" en el menú desplegable.
+En el cuerpo de la solicitud, ingresar las credenciales del usuario registrado en formato JSON, por ejemplo:
+json
+Copy code
+{
+    "username": "nuevo_usuario",
+    "password": "contrasena"
+}
+Enviar la solicitud y verificar que la respuesta sea 200 OK.
+Verificar que se reciba un token de autenticación en la respuesta.
+Para realizar la prueba de Login con usuario y password incorrecto, seguimos los siguientes pasos:
+
+Abrir Postman y crear una nueva solicitud POST.
+En la URL, ingresar https://api.demoblaze.com/login.
+En la pestaña "Body", seleccionar "raw" y "JSON" en el menú desplegable.
+En el cuerpo de la solicitud, ingresar credenciales incorrectas en formato JSON, por ejemplo:
+json
+Copy code
+{
+    "username": "usuario_incorrecto",
+    "password": "contrasena_incorrecta"
+}
+Enviar la solicitud y verificar que la respuesta sea 401 Unauthorized.
+Ver
